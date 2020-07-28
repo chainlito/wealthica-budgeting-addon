@@ -8,6 +8,7 @@
 export default {
   created() {
     this.$store.dispatch('initAddon');
+    // eslint-disable-next-line
     console.debug(this.$store);
   },
 };
