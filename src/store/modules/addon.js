@@ -38,6 +38,7 @@ const actions = {
     addon.on('init', updateOptions).on('update', updateOptions);
     commit(types.INIT_ADDON, { addon });
 
+    // eslint-disable-next-line
     addon.api.getTransactions().then((response) => console.log(response));
   },
 
