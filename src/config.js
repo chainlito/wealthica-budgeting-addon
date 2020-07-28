@@ -13,4 +13,4 @@ const vueApp = new Vue({
   render: (h) => h(App),
 });
 
-console.log(vueApp);
+export default vueApp;
