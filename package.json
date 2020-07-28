@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@wealthica/wealthica.js": "0.0.14",
     "axios": "^0.19.2",
     "eslint": "^7.5.0",
     "node-sass": "^4.14.1",
