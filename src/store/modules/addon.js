@@ -31,9 +31,7 @@ const actions = {
       // dispatch('updateBudgeting', getters.data.coins, { root: true });
     };
 
-    const addon = new Addon({
-      id: 'wealthica/wealthica-budgeting-addon/widgets/budgeting',
-    });
+    const addon = new Addon({});
 
     addon.on('init', updateOptions).on('update', updateOptions);
     commit(types.INIT_ADDON, { addon });
