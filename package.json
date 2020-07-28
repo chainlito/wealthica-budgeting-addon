@@ -4,17 +4,26 @@
   "description": "",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
+    "@vue/eslint-config-airbnb": "^5.1.0",
     "@wealthica/wealthica.js": "0.0.14",
     "axios": "^0.19.2",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
+    "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
     "vue": "^2.6.11",
+    "vue-polyglot": "^2.0.1",
+    "vue-template-compiler": "^2.6.11",
     "vuex": "^3.5.1"
   }
 }
