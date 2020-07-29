@@ -11,13 +11,12 @@ const state = {
 
 /* eslint no-shadow: ['error', { 'allow': ['state', 'getters'] }] */
 
-// initial getters
+// getters
 const getters = {
   addon: (state) => state.addon,
   language: (state) => state.addonOptions.language || 'en',
   momentLocale: (state, getters) => ((getters.language === 'fr') ? 'fr-ca' : getters.language),
   data: (state) => state.addonOptions.data || {},
-  transactions: (state) => state.transactions,
 };
 
 // actions
@@ -35,9 +34,6 @@ const actions = {
 
     addon.on('init', updateOptions).on('update', updateOptions);
     commit(types.INIT_ADDON, { addon });
-
-    // eslint-disable-next-line
-    addon.api.getTransactions().then((response) => console.log(response));
   },
 
   updateData({
