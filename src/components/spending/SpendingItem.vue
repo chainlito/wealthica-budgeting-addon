@@ -1,17 +1,23 @@
 <template>
-  <tr class="spending-item">
-    <td class="spending-item__name-cell">
-      <div class="spending-item__name">{{ category.category }}</div>
-    </td>
-    <td class="spending-item__budget-cell">
-      <div class="spending-item__budget">$700 of $1000</div>
-    </td>
-    <td>
-      <div>
-        <k-progress :percent="70" :line-height="10" :show-text="false" :color="'#38c432'" />
-      </div>
-    </td>
-  </tr>
+  <fragment>
+    <tr class="spending-item">
+      <td class="spending-item__name-cell">
+        <div class="spending-item__name">{{ category ? category.category : 'Name' }}</div>
+      </td>
+      <td class="spending-item__budget-cell">
+        <div class="spending-item__budget">{{ category ? category.amount : '$700' }} of $1000</div>
+      </td>
+      <td>
+        <div class="spending-item__progress">
+          <k-progress
+            :percent="percent <= 100 ? percent : 100"
+            :line-height="10"
+            :show-text="false"
+            :color="percent <= 100 ? '#38c432' : '#ff4128'" />
+        </div>
+      </td>
+    </tr>
+  </fragment>
 </template>
 
 <script>
@@ -23,13 +29,21 @@ export default {
       /* required: true, */
     },
   },
+  computed: {
+    percent() {
+      return this.category ? this.category.amount / 100 : 70;
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
 .spending-item {
   min-height: 40px;
   height: 40px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
 
   &__name {
     white-space: nowrap;
@@ -54,6 +68,12 @@ export default {
     &-cell {
       width: 20%;
       padding-right: 10px;
+    }
+  }
+
+  &__progress {
+    @include breakpoint(0 768px) {
+      display: none;
     }
   }
 }

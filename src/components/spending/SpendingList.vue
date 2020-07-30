@@ -3,7 +3,6 @@
     <tbody>
       <SpendingItem v-for="(category, index) in categories" :category="category" :key="index">
       </SpendingItem>
-      <SpendingItem />
     </tbody>
   </table>
 </template>

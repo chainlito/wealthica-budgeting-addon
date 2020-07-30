@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Polyglot from 'vue-polyglot';
 import KProgress from 'k-progress';
-import App from './App.vue';
+import { Plugin } from 'vue-fragment';
+import App from './components/MainWidget.vue';
 import store from './store';
 
 Vue.use(Polyglot, {
@@ -9,6 +10,7 @@ Vue.use(Polyglot, {
   languagesAvailable: ['en', 'fr'],
 });
 Vue.component('k-progress', KProgress);
+Vue.use(Plugin);
 
 const vueApp = new Vue({
   el: '#app',
