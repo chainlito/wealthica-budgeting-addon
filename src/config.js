@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Polyglot from 'vue-polyglot';
-import App from './App.vue';
+import App from './components/ConfigWidget.vue';
 
 Vue.config.productionTip = false;
 Vue.use(Polyglot, {
