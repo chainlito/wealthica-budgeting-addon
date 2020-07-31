@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="spending-list">
     <tbody>
       <SpendingItem v-for="(category, index) in categories" :category="category" :key="index">
       </SpendingItem>
@@ -28,28 +28,24 @@ export default {
 </script>
 
 <style lang="scss">
+.spending-list {
+  background: transparent;
+  width: 100%;
+  margin: 1em 0em;
+  border: none;
+  box-shadow: none;
+  border-radius: 0.26666667rem;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.87);
+  border-collapse: separate;
+  border-spacing: 0px;
 
-.categories {
-  &__list {
-    width: 50%;
-  }
-
-  &__wrapper {
-    display: flex;
-  }
-}
-
-.budgeting {
-  &__item {
-    &__amount {
-      font-size: .9333rem;
-      color: #484f64;
-      text-align: right;
-      line-height: 1.2;
-      font-weight: 700;
-      background-color: #eef1f7;
-      border-radius: 2px;
-      padding: 5px 9px;
+  & tbody {
+    & td {
+      border-top: 1px solid #f1f1f1;
+      border-bottom: 0 !important;
+      padding-top: 1.35714rem !important;
+      padding-bottom: 1.35714rem !important;
     }
   }
 }
