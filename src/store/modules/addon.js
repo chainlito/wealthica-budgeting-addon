@@ -27,13 +27,10 @@ const actions = {
     const updateOptions = (options) => {
       const newOptions = _.merge({}, state.addonOptions, options);
       commit(types.UPDATE_ADDON_OPTIONS, { data: newOptions });
-
-      // eslint-disable-next-line
-      console.log(getters.data, getters.data.budgeting);
       dispatch('updateBudgetingData', getters.data.budgeting, { root: true });
     };
 
-    const addon = new Addon({});
+    const addon = new Addon();
 
     addon.on('init', updateOptions).on('update', updateOptions);
     commit(types.INIT_ADDON, { addon });
@@ -46,7 +43,7 @@ const actions = {
       getters.addon.saveData(data).then((response) => {
         const newOptions = _.merge({}, state.addonOptions, { data });
         commit(types.UPDATE_ADDON_OPTIONS, newOptions);
-        dispatch('updateBudgetingData', data);
+        dispatch('updateBudgetingData', data.budgeting, { root: true });
         resolve(response);
       }).catch((err) => reject(err));
     });
