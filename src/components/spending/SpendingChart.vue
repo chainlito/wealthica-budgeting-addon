@@ -61,8 +61,8 @@ export default {
         key: 'category',
         value: 'amount',
         radius: {
-          inner: 135,
-          outter: 150,
+          inner: 85,
+          outter: 100,
           padding: 0.03,
           round: 20,
         },
