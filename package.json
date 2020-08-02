@@ -2,14 +2,14 @@
   "name": "wealthica-addon",
   "version": "1.0.0",
   "description": "",
-  "main": ".eslintrc.js",
+  "main": "src/main.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
     "@vue/cli-plugin-eslint": "^4.4.6",
@@ -23,17 +23,20 @@
     "eslint": "^7.5.0",
     "eslint-plugin-vue": "^6.2.2",
     "glidejs": "^2.1.0",
-    "k-progress": "^1.5.0",
     "lodash": "^4.17.19",
     "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.2",
     "script-loader": "^0.7.2",
     "vue": "^2.6.11",
     "vue-d3-charts": "^0.2.8",
     "vue-fragment": "^1.5.1",
-    "vue-polyglot": "^2.0.1",
     "vue-template-compiler": "^2.6.11",
+    "vuetify": "^2.3.7",
     "vuex": "^3.5.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@mdi/js": "^5.4.55",
+    "fibers": "^5.0.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2"
+  }
 }
