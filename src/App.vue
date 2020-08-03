@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <SpendingChart :categories="transactions" />
     <div class="container-bottom">
-      <SpendingList class="container-bottom__left" />
+      <SpendingList class="container-bottom__left" :categories="transactions" />
     </div>
   </div>
 </template>
@@ -69,5 +69,11 @@ body {
       width: 50%;
     }
   }
+}
+
+.card {
+  border: none;
+  margin-bottom: 20px;
+  filter: drop-shadow(0px 10px 13px rgba(72,79,100,0.07));
 }
 </style>
