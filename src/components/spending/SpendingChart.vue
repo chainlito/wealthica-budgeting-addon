@@ -25,6 +25,7 @@
         <b-progress
           :value="total_spent"
           :max="total_budget"
+          :class="(total_spent / total_budget) < 1 ? 'under' : 'over'"
         />
       </div>
     </div>
@@ -144,6 +145,23 @@ export default {
 
   &__line {
     opacity: 0 !important;
+  }
+}
+
+.progress {
+  $root: &;
+  border-radius: .5rem;
+
+  &.under {
+    & #{$root}-bar {
+      background-color: $green;
+    }
+  }
+
+  &.over {
+    & #{$root}-bar {
+      background-color: $red;
+    }
   }
 }
 </style>
