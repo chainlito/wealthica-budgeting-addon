@@ -35,7 +35,7 @@
       <tr v-for="(transaction, index) in item.transactions" :key="index" class="transaction-item">
         <td><b>{{ formatDate(transaction.date) }}</b></td>
         <td class="transaction-item__type">{{ transaction.type.toUpperCase() }}</td>
-        <td>${{ transaction.currency_amount }}</td>
+        <td>{{ formatPrice(transaction.currency_amount) }}</td>
         <td>{{ transaction.description }}</td>
       </tr>
     </fragment>

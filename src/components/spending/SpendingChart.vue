@@ -2,11 +2,26 @@
   <b-card v-if="categories.length > 0">
     <div class="spending-graph">
       <div class="spending-graph__chart">
-        <D3PieChart :config="chart_config" :datum="chart_data" />
+        <D3PieChart :config="chart_config" :datum="chart_data"  />
       </div>
       <div class="spending-graph__text">
-        <h3>You have spent {{ total_spent / total_budget }}% of your total budget in this month</h3>
-        <span>${{ total_spent }} of ${{ total_budget }}</span>
+        <h4>
+          You have spent
+          <span
+            class="spending-graph__text__percent"
+            :class="(total_spent / total_budget) < 1 ? 'under' : 'over'"
+          >{{ Math.round(total_spent / total_budget * 100) }}%</span>
+          of your total budget in this month
+        </h4>
+        <div class="spending-graph__text__amount-wrapper">
+          <span class="spending-graph__text__amount-spent">
+            {{ formatPrice(total_spent, true) }}
+          </span>
+          <small>&nbsp;of</small>&nbsp;&nbsp;
+          <span class="spending-graph__text__amount-budget">
+            {{ formatPrice(total_budget, true) }}
+          </span>
+        </div>
         <b-progress
           :value="total_spent"
           :max="total_budget"
@@ -18,6 +33,7 @@
 
 <script>
 import { D3PieChart } from 'vue-d3-charts';
+import { formatPrice } from '@/utils';
 
 export default {
   components: {
@@ -51,9 +67,10 @@ export default {
   methods: {
     updateChartData(value) {
       this.chart_data = value;
-      this.total_spent = 100;
-      this.total_budget = 1000;
+      this.total_spent = value.reduce((a, b) => a + b.amount, 0);
+      this.total_budget = value.reduce((x, y) => x + y.max_amount, 0);
     },
+    formatPrice,
   },
 
   watch: {
@@ -94,6 +111,28 @@ export default {
 
     @media screen and (max-width: $desktop) {
       width: 100%;
+    }
+
+    &__amount {
+      &-wrapper {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      &-spent {
+        font-size: 1.2333rem;
+      }
+      &-budget {
+        font-size: 1.2333rem;
+      }
+    }
+
+    &__percent {
+      &.under {
+        color: $green;
+      }
+      &.over {
+        color: $red;
+      }
     }
   }
 }

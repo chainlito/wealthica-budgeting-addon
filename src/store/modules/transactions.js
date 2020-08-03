@@ -53,7 +53,8 @@ const actions = {
           categorizedTransactions.push({
             category: x,
             amount: -amount,
-            max_amount: budgetIdx < 0 ? 0 : getters.budgetingData[budgetIdx].max_amount,
+            max_amount:
+              budgetIdx < 0 ? 0 : parseInt(getters.budgetingData[budgetIdx].max_amount, 10),
             transactions: transArr,
           });
         });
