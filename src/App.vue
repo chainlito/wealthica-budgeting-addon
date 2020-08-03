@@ -1,9 +1,7 @@
 <template>
   <div id="app" class="container">
     <SpendingChart :categories="transactions" />
-    <div class="container-bottom">
-      <SpendingList class="container-bottom__left" :categories="transactions" />
-    </div>
+    <SpendingList :categories="transactions" />
   </div>
 </template>
 
@@ -56,24 +54,13 @@ body {
   padding-top: 6px;
 }
 
-.container {
-  &-bottom {
-    display: flex;
-
-    &__left {
-      width: 100%;
-    }
-
-    &__right {
-      display: none;
-      width: 50%;
-    }
-  }
-}
-
 .card {
   border: none;
   margin-bottom: 20px;
   filter: drop-shadow(0px 10px 13px rgba(72,79,100,0.07));
+
+  &-body {
+    overflow-x: auto;
+  }
 }
 </style>

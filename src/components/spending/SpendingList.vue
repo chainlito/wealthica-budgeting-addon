@@ -30,6 +30,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/variables.scss';
+
 .spending-list {
   background: transparent;
   width: 100%;
@@ -46,7 +48,7 @@ export default {
     & th {
       font-size: 14px;
       letter-spacing: 1px;
-      color: #14171a;
+      color: $darker-text-color;
       font-weight: 500;
       padding-top: 1.35714rem !important;
       padding-bottom: 1.35714rem !important;
@@ -63,7 +65,7 @@ export default {
   & tbody {
     & td {
       border-top: 0 !important;
-      border-bottom: 1px solid #f1f1f1;
+      border-bottom: 1px solid $light-border-color;
       padding-top: 1.35714rem !important;
       padding-bottom: 1.35714rem !important;
 

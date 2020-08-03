@@ -80,12 +80,6 @@ export default {
     },
   },
 
-  watch: {
-    category(value) {
-      this.$set(this, 'item', value);
-    },
-  },
-
   created() {
     this.item = this.category;
   },
@@ -94,6 +88,7 @@ export default {
 
 <style lang="scss">
 @import '~breakpoint-sass/stylesheets/breakpoint';
+@import '@/styles/variables.scss';
 
 .spending-item {
   min-height: 4rem;
@@ -102,21 +97,21 @@ export default {
   transition: background 0.2s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
 
   &:hover {
-    background-color: #F2F7F9;
+    background-color: $lighter-gray;
   }
 
   &__name {
     white-space: nowrap;
     font-size: .9333rem;
-    color: #484f64;
+    color: $dark-text-color;
     line-height: 1.2;
-    background-color: #eef1f7;
+    background-color: $light-gray;
     border-radius: 5px;
     padding: 0.5rem 0.9rem;
     display: inline;
     font-size: 1.0rem;
     letter-spacing: 1px;
-    color: #535353;
+    color: $dark-text-color;
 
     &-cell {
       padding-right: 1rem;
@@ -125,7 +120,7 @@ export default {
 
   &__spent {
     font-size: .9333rem;
-    color: #484f64;
+    color: $dark-text-color;
 
     &-cell {
       padding-right: 1rem;
@@ -137,17 +132,6 @@ export default {
     &-cell {
       padding-right: 2rem;
       width: 20%;
-    }
-  }
-
-  &__progress {
-    @include breakpoint(0 768px) {
-      display: none;
-    }
-
-    &-cell {
-      width: 30%;
-      padding-right: 0.5rem;
     }
   }
 
@@ -163,16 +147,16 @@ export default {
     }
 
     &.up {
-      color: #fe2700;
+      color: $red;
     }
 
     &.down {
-      color: #2ec623;
+      color: $green;
     }
   }
 
   &__expand-icon {
-    background-color: #eef1f7;
+    background-color: $light-gray;
     padding: 2px;
     border-radius: 10px;
     margin-left: 1rem;
@@ -181,9 +165,9 @@ export default {
 }
 
 .transaction-item {
-  background-color: #F2F7F9;
+  background-color: $lighter-gray;
   font-size: .8666rem;
-  color: #484f64;
+  color: $dark-text-color;
 
   & td {
     padding-top: 1rem !important;
@@ -196,16 +180,6 @@ export default {
 
   &__type {
     padding-left: .5rem;
-  }
-}
-
-.k-progress {
-  margin-bottom: 0;
-  margin-right: 0;
-
-  &-outer {
-    margin-right: 0;
-    padding-right: 0;
   }
 }
 </style>

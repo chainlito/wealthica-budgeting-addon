@@ -48,6 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/variables.scss';
 
 .budgeting-editable {
 
@@ -65,11 +66,11 @@ export default {
     line-height: 36px;
     font-size: .9333rem;
     text-transform: none;
-    color: #484f64;
+    color: $dark-text-color;
     cursor: text;
 
     &:hover {
-      border: 1px solid #D7DBEC;
+      border: 1px solid $dark-border-color;
 
       & #{$icon}-icon {
         display: inline-block !important;
@@ -77,7 +78,7 @@ export default {
     }
 
     #{$icon}-icon {
-      color: #D7DBEC;
+      color: $dark-border-color;
       display: none !important;
     }
   }
@@ -93,15 +94,15 @@ export default {
     height: 20px;
     border: none;
     border-radius: 3px;
-    color: white;
+    color: $white;
     cursor: pointer;
 
     &.ok {
-      background-color: #2ec623;
+      background-color: $green;
     }
 
     &.cancel {
-      background-color: #fe2700;
+      background-color: $red;
     }
   }
 
@@ -114,9 +115,9 @@ export default {
     line-height: 36px;
     font-size: .9333rem;
     text-transform: none;
-    border: 1px solid #d7dbec;
-    background-color: #fff;
-    color: #484f64;
+    border: 1px solid $dark-border-color;
+    background-color: $white;
+    color: $dark-text-color;
     outline: 0;
     border-radius: 3px;
   }
