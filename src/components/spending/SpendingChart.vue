@@ -39,7 +39,7 @@ export default {
           scheme: 'schemePaired',
         },
         transition: {
-          duration: 0,
+          duration: 1,
         },
       },
       chart_data: [],
@@ -69,17 +69,32 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/variables.scss';
+
 .spending-graph {
   display: flex;
   align-items: center;
 
+  @media screen and (max-width: $desktop) {
+    display: block;
+  }
+
   &__chart {
     width: 50%;
+
+    @media screen and (max-width: $desktop) {
+      width: 100%;
+    }
   }
 
   &__text {
     width: 50%;
+    padding: 2rem;
     text-align: center;
+
+    @media screen and (max-width: $desktop) {
+      width: 100%;
+    }
   }
 }
 
