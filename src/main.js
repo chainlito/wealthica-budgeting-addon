@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import './plugins/bootstrap';
 import './plugins/iframe';
+import './plugins/fragment';
 
 import App from './App.vue';
 import store from './store';
