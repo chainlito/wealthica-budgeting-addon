@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="budgeting-editable__text" @click="handleInputEditable" v-show="!active">
-      <div>${{ text }}</div>
+      <div>{{ formatPrice(text) }}</div>
       <b-icon icon="pencil" class="budgeting-editable__text-icon" />
     </div>
     <div v-show="active" class="budgeting-editable__form">
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { formatPrice } from '@/utils';
 
 export default {
   props: {
@@ -43,6 +44,7 @@ export default {
       this.onSave(this.text);
       this.handleInputEditable();
     },
+    formatPrice,
   },
 };
 </script>

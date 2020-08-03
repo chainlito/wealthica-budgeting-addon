@@ -16,7 +16,7 @@
       </td>
       <td class="spending-item__spent-cell">
         <div class="spending-item__spent">
-          ${{ Math.round(item.amount * 100) / 100 }}
+          {{ formatPrice(item.amount, true) }}
         </div>
       </td>
       <td class="spending-item__saving-cell">
@@ -24,7 +24,7 @@
           class="spending-item__saving"
           :class="item.amount / item.max_amount > 1 ? 'up' : 'down'"
         >
-          <div>${{ Math.round((item.max_amount - item.amount) * 100) / 100 }}</div>
+          <div>{{ formatPrice(item.max_amount - item.amount, true) }}</div>
           <div class="spending-item__saving__percent">
             <div>{{ Math.round(item.amount / item.max_amount * 100) }}%</div>
           </div>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+import { formatPrice, formatDate } from '@/utils';
 import EditableBudget from './EditableBudget.vue';
 
 export default {
@@ -51,12 +51,7 @@ export default {
     EditableBudget,
   },
 
-  props: {
-    category: {
-      type: Object,
-      required: true,
-    },
-  },
+  props: ['category'],
 
   data: () => ({
     item: null,
@@ -72,12 +67,11 @@ export default {
       this.$store.dispatch('updateBudgetingItem', newData);
       this.item.max_amount = amount;
     },
-    formatDate(dateStr) {
-      return moment(dateStr).format('MMM/DD/YYYY');
-    },
     updateExpand() {
       this.expanded = !this.expanded;
     },
+    formatPrice,
+    formatDate,
   },
 
   created() {
