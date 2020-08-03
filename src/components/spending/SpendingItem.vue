@@ -1,37 +1,54 @@
 <template>
-  <tr class="spending-item">
-    <td class="spending-item__name-cell">
-      <div class="spending-item__name">{{ item ? item.category : 'Name' }}</div>
-    </td>
-    <td class="spending-item__spent-cell">
-      <div class="spending-item__spent">
-        $ {{ Math.round(item.amount * 100) / 100 }}
-      </div>
-    </td>
-    <td class="spending-item__budget-cell">
-      <EditableButton :amount="item.max_amount.toString()" :onSave="saveBudgetingAmount" />
-    </td>
-    <td class="spending-item__saving-cell">
-      <div
-        class="spending-item__saving"
-        :class="item.amount / item.max_amount > 1 ? 'up' : 'down'"
-      >
-        <div>${{ Math.round((item.max_amount - item.amount) * 100) / 100 }}</div>
-        <div class="spending-item__saving__percent">
-          <b-icon icon="caret-up-fill"></b-icon>
-          <div>{{ Math.round(item.amount / item.max_amount * 100) }}%</div>
+  <fragment>
+    <tr class="spending-item">
+      <td class="spending-item__name-cell">
+        <div class="spending-item__name">
+          {{ item ? item.category : 'Name' }}
         </div>
-      </div>
-    </td>
-  </tr>
+        <b-icon
+          :icon="expanded ? 'chevron-up' : 'chevron-down'"
+          @click="updateExpand"
+          class="spending-item__expand-icon"
+        />
+      </td>
+      <td class="spending-item__budget-cell">
+        <EditableBudget :amount="item.max_amount.toString()" :onSave="saveBudgetingAmount" />
+      </td>
+      <td class="spending-item__spent-cell">
+        <div class="spending-item__spent">
+          ${{ Math.round(item.amount * 100) / 100 }}
+        </div>
+      </td>
+      <td class="spending-item__saving-cell">
+        <div
+          class="spending-item__saving"
+          :class="item.amount / item.max_amount > 1 ? 'up' : 'down'"
+        >
+          <div>${{ Math.round((item.max_amount - item.amount) * 100) / 100 }}</div>
+          <div class="spending-item__saving__percent">
+            <div>{{ Math.round(item.amount / item.max_amount * 100) }}%</div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <fragment v-if="expanded">
+      <tr v-for="(transaction, index) in item.transactions" :key="index" class="transaction-item">
+        <td><b>{{ formatDate(transaction.date) }}</b></td>
+        <td class="transaction-item__type">{{ transaction.type.toUpperCase() }}</td>
+        <td>${{ transaction.currency_amount }}</td>
+        <td>{{ transaction.description }}</td>
+      </tr>
+    </fragment>
+  </fragment>
 </template>
 
 <script>
-import EditableButton from '../Button.vue';
+import moment from 'moment';
+import EditableBudget from './EditableBudget.vue';
 
 export default {
   components: {
-    EditableButton,
+    EditableBudget,
   },
 
   props: {
@@ -43,6 +60,7 @@ export default {
 
   data: () => ({
     item: null,
+    expanded: false,
   }),
 
   methods: {
@@ -52,6 +70,13 @@ export default {
         max_amount: amount,
       };
       this.$store.dispatch('updateBudgetingItem', newData);
+      this.item.max_amount = amount;
+    },
+    formatDate(dateStr) {
+      return moment(dateStr).format('MMM/DD/YYYY');
+    },
+    updateExpand() {
+      this.expanded = !this.expanded;
     },
   },
 
@@ -77,7 +102,7 @@ export default {
   transition: background 0.2s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
 
   &:hover {
-    background-color: #F2F2FE;
+    background-color: #F2F7F9;
   }
 
   &__name {
@@ -95,7 +120,6 @@ export default {
 
     &-cell {
       padding-right: 1rem;
-      padding-left: 0.5rem;
     }
   }
 
@@ -105,6 +129,7 @@ export default {
 
     &-cell {
       padding-right: 1rem;
+      width: 15%;
     }
   }
 
@@ -131,9 +156,6 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    &-cell {
-      padding-right: 1rem;
-    }
     &__percent {
       display: flex;
       justify-content: center;
@@ -147,6 +169,33 @@ export default {
     &.down {
       color: #2ec623;
     }
+  }
+
+  &__expand-icon {
+    background-color: #eef1f7;
+    padding: 2px;
+    border-radius: 10px;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+}
+
+.transaction-item {
+  background-color: #F2F7F9;
+  font-size: .8666rem;
+  color: #484f64;
+
+  & td {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+
+    &:first-child {
+      padding-left: 2rem !important;
+    }
+  }
+
+  &__type {
+    padding-left: .5rem;
   }
 }
 

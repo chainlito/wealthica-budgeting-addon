@@ -4,8 +4,8 @@
       <thead>
         <tr>
           <th>Category</th>
-          <th>Total Spent</th>
           <th>Total Budget</th>
+          <th>Total Spent</th>
           <th>Saving / Exceeds</th>
         </tr>
       </thead>
@@ -66,6 +66,14 @@ export default {
       border-bottom: 1px solid #f1f1f1;
       padding-top: 1.35714rem !important;
       padding-bottom: 1.35714rem !important;
+
+      &:first-child {
+        padding-left: 1rem;
+      }
+
+      &:last-child {
+        padding-right: 1rem;
+      }
     }
   }
 }
