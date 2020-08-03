@@ -12,8 +12,6 @@ import { mapGetters } from 'vuex';
 import SpendingChart from './components/spending/SpendingChart.vue';
 import SpendingList from './components/spending/SpendingList.vue';
 
-// import 'glidejs/dist/css/glide.core.css';
-
 export default {
   components: {
     SpendingChart,
