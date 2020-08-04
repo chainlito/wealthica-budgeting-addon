@@ -66,6 +66,7 @@ const actions = {
       });
     });
   },
+
   updateBudgetingData({
     commit,
   }, newData = []) {
@@ -74,9 +75,9 @@ const actions = {
 
     commit(types.UPDATE_BUDGETING_DATA, { data: newData });
   },
+
   updateBudgetingItem({
-    // eslint-disable-next-line
-    dispatch, commit, rootGetters, getters,
+    dispatch, commit, getters,
   }, item) {
     const index = getters.budgetingData.findIndex((y) => y.category === item.category);
     let updatedData = getters.budgetingData;
@@ -87,6 +88,15 @@ const actions = {
     }
 
     dispatch('updateAddonData', { budgeting: updatedData });
+
+    const updatedCategories = getters.categorizedTransactions.map((x) => {
+      if (x.category !== item.category) return x;
+      return {
+        ...x,
+        max_amount: parseInt(item.max_amount, 10),
+      };
+    });
+    commit(types.CATEGORIZE_TRANSACTIONS, { transactions: updatedCategories });
   },
 };
 

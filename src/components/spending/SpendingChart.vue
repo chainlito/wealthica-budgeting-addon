@@ -67,9 +67,11 @@ export default {
 
   methods: {
     updateChartData(value) {
-      this.chart_data = value;
-      this.total_spent = value.reduce((a, b) => a + b.amount, 0);
-      this.total_budget = value.reduce((x, y) => x + y.max_amount, 0);
+      if (value && value.length > 0) {
+        this.chart_data = value;
+        this.total_spent = value.reduce((a, b) => a + b.amount, 0);
+        this.total_budget = value.reduce((x, y) => x + parseInt(y.max_amount, 10), 0);
+      }
     },
     formatPrice,
   },
@@ -116,7 +118,7 @@ export default {
 
     &__amount {
       &-wrapper {
-        margin-top: 1.5rem;
+        margin-top: 2.5rem;
         margin-bottom: 1rem;
       }
       &-spent {
@@ -151,6 +153,7 @@ export default {
 .progress {
   $root: &;
   border-radius: .5rem;
+  height: .6rem;
 
   &.under {
     & #{$root}-bar {
