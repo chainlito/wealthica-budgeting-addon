@@ -35,6 +35,7 @@
 <script>
 import { D3PieChart } from 'vue-d3-charts';
 import { formatPrice } from '@/utils';
+import { PIE_CHART_CONFIG } from '@/constants';
 
 export default {
   components: {
@@ -43,22 +44,7 @@ export default {
   props: ['categories'],
   data() {
     return {
-      chart_config: {
-        key: 'category',
-        value: 'amount',
-        radius: {
-          inner: 0,
-          outter: 100,
-          padding: 0.00,
-          round: 0,
-        },
-        color: {
-          scheme: 'schemePaired',
-        },
-        transition: {
-          duration: 1,
-        },
-      },
+      chart_config: PIE_CHART_CONFIG,
       chart_data: [],
       total_spent: 0,
       total_budget: 0,
@@ -101,9 +87,11 @@ export default {
 
   &__chart {
     width: 50%;
+    padding: 20px;
 
     @media screen and (max-width: $desktop) {
       width: 100%;
+      padding: 0 20px;
     }
   }
 
@@ -114,6 +102,7 @@ export default {
 
     @media screen and (max-width: $desktop) {
       width: 100%;
+      padding: 1rem 2rem;
     }
 
     &__amount {
@@ -143,11 +132,11 @@ export default {
 
 .chart {
   &__label {
-    opacity: 0 !important;
+    opacity: 0.7 !important;
   }
 
   &__line {
-    opacity: 0 !important;
+    opacity: 0.7 !important;
   }
 }
 
