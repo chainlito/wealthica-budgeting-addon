@@ -27,7 +27,7 @@
           <div>{{ formatPrice(item.max_amount - item.amount, true) }}</div>
           <div class="spending-item__saving__percent">
             {{ !item.max_amount || item.max_amount === 0
-                ? 'No Budget'
+                ? $t('no_budget')
                 : `${Math.round(item.amount / item.max_amount * 100)}%` }}
           </div>
         </div>

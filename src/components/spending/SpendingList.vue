@@ -3,10 +3,10 @@
     <table class="spending-list">
       <thead>
         <tr>
-          <th>Category</th>
-          <th>Total Budget</th>
-          <th>Total Spent</th>
-          <th>Saving / Exceeds</th>
+          <th>{{ $t('category') }}</th>
+          <th>{{ $t('total_budget') }}</th>
+          <th>{{ $t('total_spent') }}</th>
+          <th>{{ $t('saving') }}</th>
         </tr>
       </thead>
       <tbody>

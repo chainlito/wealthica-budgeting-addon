@@ -15,7 +15,6 @@ const state = {
 const getters = {
   addon: (state) => state.addon,
   language: (state) => state.addonOptions.language || 'en',
-  momentLocale: (state, getters) => ((getters.language === 'fr') ? 'fr-ca' : getters.language),
   data: (state) => state.addonOptions.data || {},
 };
 
