@@ -6,6 +6,7 @@ import './plugins/fragment';
 import App from './App.vue';
 import store from './store';
 
+store.dispatch('initDate');
 store.dispatch('initAddon');
 
 const vueApp = new Vue({

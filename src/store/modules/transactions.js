@@ -28,10 +28,13 @@ const actions = {
         resolve(transactions);
       };
 
-      rootGetters.addon.api.getTransactions({ from: '2020-07-01', to: '2020-07-31' }).then((transactions) => {
+      rootGetters.addon.api.getTransactions({
+        from: `${getters.selectedDate}-01`,
+        to: `${getters.selectedDate}-31`,
+      }).then((transactions) => {
         storeTransactions(transactions);
         const incomeTransactions = transactions.filter((x) => x.currency_amount < 0);
-        const categories = [];
+        const categories = getters.budgetingData.map((x) => x.category);
         const categorizedTransactions = [];
 
         // parsing categories

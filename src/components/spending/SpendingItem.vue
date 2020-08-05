@@ -26,7 +26,9 @@
         >
           <div>{{ formatPrice(item.max_amount - item.amount, true) }}</div>
           <div class="spending-item__saving__percent">
-            <div>{{ Math.round(item.amount / item.max_amount * 100) }}%</div>
+            {{ !item.max_amount || item.max_amount === 0
+                ? 'No Budget'
+                : `${Math.round(item.amount / item.max_amount * 100)}%` }}
           </div>
         </div>
       </td>
@@ -62,10 +64,10 @@ export default {
     saveBudgetingAmount(amount) {
       const newData = {
         category: this.category.category,
-        max_amount: amount,
+        max_amount: parseInt(amount, 10),
       };
       this.$store.dispatch('updateBudgetingItem', newData);
-      this.item.max_amount = amount;
+      this.item.max_amount = parseInt(amount, 10);
     },
     updateExpand() {
       this.expanded = !this.expanded;
