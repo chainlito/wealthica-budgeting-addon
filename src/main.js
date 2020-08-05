@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import './plugins/bootstrap';
-import './plugins/iframe';
 import './plugins/fragment';
 import './plugins/polyglot';
 
