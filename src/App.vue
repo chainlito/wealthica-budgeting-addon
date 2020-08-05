@@ -7,8 +7,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import SpendingChart from './components/spending/SpendingChart.vue';
-import SpendingList from './components/spending/SpendingList.vue';
+import SpendingChart from './components/SpendingChart.vue';
+import SpendingList from './components/SpendingList.vue';
 
 export default {
   components: {
