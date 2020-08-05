@@ -43,6 +43,7 @@ export default {
   color: rgba(0, 0, 0, 0.87);
   border-collapse: separate;
   border-spacing: 0px;
+  padding-right: 1rem;
 
   & thead {
     & th {

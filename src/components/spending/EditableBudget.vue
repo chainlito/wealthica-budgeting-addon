@@ -71,6 +71,10 @@ export default {
     color: $dark-text-color;
     cursor: text;
 
+    @media screen and (max-width: $tablet) {
+      font-size: .8333rem;
+    }
+
     &:hover {
       border: 1px solid $dark-border-color;
 
@@ -122,6 +126,11 @@ export default {
     color: $dark-text-color;
     outline: 0;
     border-radius: 3px;
+
+    @media screen and (max-width: $tablet) {
+      max-width: 100px;
+      font-size: .8333rem;
+    }
   }
 }
 </style>

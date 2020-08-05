@@ -126,6 +126,7 @@ export default {
       }
       &-budget {
         font-size: 1.2333rem;
+        margin-left: .5rem;
       }
     }
 

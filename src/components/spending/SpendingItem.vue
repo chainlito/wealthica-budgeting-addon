@@ -98,7 +98,6 @@ export default {
 
   &__name {
     white-space: nowrap;
-    font-size: .9333rem;
     color: $dark-text-color;
     line-height: 1.2;
     background-color: $light-gray;
@@ -109,6 +108,10 @@ export default {
     letter-spacing: 1px;
     color: $dark-text-color;
 
+    @media screen and (max-width: $tablet) {
+      font-size: .8666rem;
+    }
+
     &-cell {
       padding-right: 1rem;
     }
@@ -117,6 +120,10 @@ export default {
   &__spent {
     font-size: .9333rem;
     color: $dark-text-color;
+
+    @media screen and (max-width: $tablet) {
+      font-size: .8333rem;
+    }
 
     &-cell {
       padding-right: 1rem;
@@ -135,6 +142,14 @@ export default {
     font-size: 0.9333rem;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: $tablet) {
+      font-size: .8333rem;
+
+      &-cell {
+        min-width: 100px;
+      }
+    }
 
     &__percent {
       display: flex;
@@ -164,6 +179,10 @@ export default {
   background-color: $lighter-gray;
   font-size: .8666rem;
   color: $dark-text-color;
+
+  @media screen and (max-width: $tablet) {
+    font-size: .7666rem;
+  }
 
   & td {
     padding-top: 1rem !important;
