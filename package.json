@@ -37,6 +37,10 @@
     "vuex": "^3.5.1"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.3",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.2.2",
+    "babel-preset-env": "^1.7.0",
     "deepmerge": "^4.2.2",
     "fibers": "^5.0.0",
     "jest": "^26.2.2",
