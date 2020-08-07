@@ -1,11 +1,10 @@
 import Vue from 'vue';
 import { mapGetters } from 'vuex';
+import App from './App.vue';
+import store from './store';
 import './plugins/bootstrap';
 import './plugins/fragment';
 import './plugins/polyglot';
-
-import App from './App.vue';
-import store from './store';
 
 Vue.config.productionTip = false;
 store.dispatch('initDate');
