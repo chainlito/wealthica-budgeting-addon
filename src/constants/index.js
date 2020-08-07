@@ -1,5 +1,3 @@
-/* eslint-disable import/prefer-default-export */
-
 export const PIE_CHART_CONFIG = {
   key: 'category',
   value: 'amount',
