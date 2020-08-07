@@ -23,16 +23,20 @@ const actions = {
   initAddon({
     commit, dispatch, getters, state,
   }) {
-    const updateOptions = (options) => {
-      const newOptions = _.merge({}, state.addonOptions, options);
-      commit(types.UPDATE_ADDON_OPTIONS, { data: newOptions });
-      dispatch('updateBudgetingData', getters.data.budgeting, { root: true });
-    };
+    if (process.env.NODE_ENV !== 'development') {
+      const updateOptions = (options) => {
+        const newOptions = _.merge({}, state.addonOptions, options);
+        commit(types.UPDATE_ADDON_OPTIONS, { data: newOptions });
+        dispatch('updateBudgetingData', getters.data.budgeting, { root: true });
+      };
 
-    const addon = new Addon();
+      const addon = new Addon();
+      commit(types.INIT_ADDON, { addon });
 
-    addon.on('init', updateOptions).on('update', updateOptions);
-    commit(types.INIT_ADDON, { addon });
+      addon
+        .on('init', updateOptions)
+        .on('update', updateOptions);
+    }
   },
 
   updateAddonData({

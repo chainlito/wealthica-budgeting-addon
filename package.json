@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "vue-cli-service serve --mode production",
+    "build": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint",
     "test": "jest"
   },
