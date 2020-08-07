@@ -23,11 +23,7 @@ const actions = {
   initAddon({
     commit, dispatch, getters, state,
   }) {
-    // eslint-disable-next-line
-    console.log('Init Addon!');
     if (process.env.NODE_ENV !== 'development') {
-      // eslint-disable-next-line
-      console.log('Production mode');
       const updateOptions = (options) => {
         const newOptions = _.merge({}, state.addonOptions, options);
         commit(types.UPDATE_ADDON_OPTIONS, { data: newOptions });
