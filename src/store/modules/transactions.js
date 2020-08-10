@@ -43,7 +43,9 @@ const actions = {
             categories.push(x.category);
           }
         });
-        categories.push('Other Categories');
+        if (!categories.includes('Other Categories')) {
+          categories.push('Other Categories');
+        }
 
         // categorizing transactions
         categories.forEach((x) => {
