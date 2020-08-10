@@ -1,4 +1,4 @@
-import moment from 'moment';
+// import moment from 'moment';
 import * as types from '../mutation-types';
 
 /* eslint no-shadow: ['error', { 'allow': ['state', 'getters'] }] */
@@ -18,7 +18,7 @@ const actions = {
   initDate({
     commit,
   }) {
-    commit(types.SET_DATE, { date: moment().format('YYYY-MM') });
+    commit(types.SET_DATE, { date: '2020-07' });
   },
 
   updateDate({

@@ -85,7 +85,8 @@ export default {
 
     #{$icon}-icon {
       color: $dark-border-color;
-      display: none !important;
+      display: inline-block !important;
+      cursor: pointer;
     }
   }
 

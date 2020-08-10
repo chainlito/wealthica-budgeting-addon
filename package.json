@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "serve": "vue-cli-service serve --mode production",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint",
     "test": "jest"
@@ -21,7 +21,7 @@
     "babel-eslint": "^10.1.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.16.0",
-    "breakpoint-sass": "^2.7.1",
+    "chart.js": "^2.9.3",
     "eslint": "^7.5.0",
     "eslint-plugin-vue": "^6.2.2",
     "glidejs": "^2.1.0",
@@ -30,7 +30,7 @@
     "node-sass": "^4.14.1",
     "script-loader": "^0.7.2",
     "vue": "^2.6.11",
-    "vue-d3-charts": "^0.2.8",
+    "vue-chartjs": "^3.5.0",
     "vue-fragment": "^1.5.1",
     "vue-polyglot": "^2.0.1",
     "vue-template-compiler": "^2.6.11",

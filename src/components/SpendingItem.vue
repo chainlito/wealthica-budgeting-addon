@@ -83,7 +83,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~breakpoint-sass/stylesheets/breakpoint';
 @import '@/styles/variables.scss';
 
 .spending-item {

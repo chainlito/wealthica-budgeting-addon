@@ -2,7 +2,7 @@
   <b-card v-if="categories.length > 0">
     <div class="spending-graph">
       <div class="spending-graph__chart">
-        <D3PieChart :config="chart_config" :datum="chart_data"  />
+        <DoughnutChart :data="categories" />
       </div>
       <div class="spending-graph__text">
         <h4>
@@ -33,18 +33,16 @@
 </template>
 
 <script>
-import { D3PieChart } from 'vue-d3-charts';
+import DoughnutChart from './ui/DoughnutChart';
 import { formatPrice } from '@/utils';
-import { PIE_CHART_CONFIG } from '@/constants';
 
 export default {
   components: {
-    D3PieChart,
+    DoughnutChart,
   },
   props: ['categories'],
   data() {
     return {
-      chart_config: PIE_CHART_CONFIG,
       chart_data: [],
       total_spent: 0,
       total_budget: 0,
@@ -86,7 +84,7 @@ export default {
   }
 
   &__chart {
-    width: 50%;
+    width: 60%;
     padding: 20px;
 
     @media screen and (max-width: $desktop) {
@@ -96,7 +94,7 @@ export default {
   }
 
   &__text {
-    width: 50%;
+    width: 40%;
     padding: 2rem;
     text-align: center;
 
@@ -127,16 +125,6 @@ export default {
         color: $red;
       }
     }
-  }
-}
-
-.chart {
-  &__label {
-    opacity: 0.7 !important;
-  }
-
-  &__line {
-    opacity: 0.7 !important;
   }
 }
 

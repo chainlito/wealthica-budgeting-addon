@@ -1,7 +1,9 @@
 export default {
-  category: 'Category',
-  total_budget: 'Total Budget',
-  total_spent: 'Total Spent',
-  saving: 'Saving / Percent',
+  category: 'CATEGORY',
+  budget: 'BUDGET',
+  spendings: 'SPENDINGS',
+  saving: 'SAVING',
   no_budget: 'No Budget',
+  categorized_transactions: 'CATEGORIZED TRANSACTIONS',
+  not_categorized_transactions: 'NOT CATEGORIZED TRANSACTIONS',
 };
