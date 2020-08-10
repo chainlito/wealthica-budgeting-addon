@@ -5,13 +5,16 @@
         <DoughnutChart :data="categories" />
       </div>
       <div class="spending-graph__text">
-        <h4>
+        <h4 v-if="total_budget > 0">
           You have spent
           <span
             class="spending-graph__text__percent"
             :class="(total_spent / total_budget) < 1 ? 'under' : 'over'"
           >{{ Math.round(total_spent / total_budget * 100) }}%</span>
           of your total budget in this month
+        </h4>
+        <h4 v-else>
+          You have no budget in this month
         </h4>
         <div class="spending-graph__text__amount-wrapper">
           <span class="spending-graph__text__amount-spent">
