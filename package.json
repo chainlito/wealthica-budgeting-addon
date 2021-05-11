@@ -25,7 +25,7 @@
     "eslint": "^7.5.0",
     "eslint-plugin-vue": "^6.2.2",
     "glidejs": "^2.1.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
     "script-loader": "^0.7.2",
